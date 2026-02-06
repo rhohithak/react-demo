@@ -1,7 +1,7 @@
 name: test_workflow
 on: push 
 jobs:
-    tets_job:
+    test_job:
         runs-on: ubuntu-latest
         steps:
         - name: get code
@@ -15,6 +15,7 @@ jobs:
         - name: run tests
           run: npm test 
     deploy:
+        needs: test_job 
         runs-on: ubuntu-latest
         steps:
         - name: get code
